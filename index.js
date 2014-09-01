@@ -3,7 +3,7 @@
 var config = require('./config');
 var FB = require('fb');
 
-module.exports = function(cb){
+var fbDiary = function(cb){
   FB.api('oauth/access_token', {
     client_id: config.client_id,
     client_secret: config.client_secret,
@@ -16,33 +16,11 @@ module.exports = function(cb){
 
     var accessToken = res.access_token;
 
-    var getWall = function (group, callback) {
-      FB.api(
-        '/' + group +
-        '/feed?limit=' + config.maxPosts +
-        '&access_token='+accessToken,
-        function (res) {
-        if(!res || res.error) {
-          cb(!res ? 'error occurred' : res.error);
-          return;
-        }
-        callback(null, res.data);
-      });
-    };
-
-    var getPost = function (id, callback) {
-      FB.api(id + '?access_token='+accessToken, function (res) {
-        if(!res || res.error) {
-          cb(!res ? 'error occurred' : res.error);
-          return;
-        }
-        callback(null, res);
-      });
-    };
-
-    cb(null, {
-      getWall: getWall,
-      getPost: getPost,
-    });
+    console.log(accessToken);
   });
 };
+
+
+module.exports = fbDiary;
+
+fbDiary();
