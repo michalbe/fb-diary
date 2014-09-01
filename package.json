@@ -11,5 +11,8 @@
   "scripts": {
     "test": "node tests/fb-diary-tests.js",
     "lint": "node node_modules/jshint/bin/jshint ."
+  },
+  "dependencies": {
+    "fb": "^0.7.0"
   }
 }
