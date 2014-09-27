@@ -1,0 +1,18 @@
+{
+  "name": "fb-diary",
+  "version": "0.0.1",
+  "author": "Michal Budzynski <michal@virtualdesign.pl>",
+  "repository": "git@github.com:michalbe/fb-diary.git",
+  "devDependencies": {
+    "assert": "^1.1.2",
+    "jshint": "^2.5.5",
+    "precommit-hook": "^1.0.7"
+  },
+  "scripts": {
+    "test": "node tests/fb-diary-tests.js",
+    "lint": "node node_modules/jshint/bin/jshint ."
+  },
+  "dependencies": {
+    "fb": "^0.7.0"
+  }
+}
